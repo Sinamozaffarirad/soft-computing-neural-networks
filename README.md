@@ -8,6 +8,16 @@ written in PyTorch: I define each model as an `nn.Module` and write the training
 loss, backward pass, optimizer step), with my own stopping rule for convergence. The Iris dataset comes from
 scikit-learn, which I also use for splitting, scaling and metrics.
 
+## Theory questions → [`HW2_report.ipynb`](HW2_report.ipynb)
+
+The first part of the homework was written answers, which are in the notebook:
+
+1. Why neural networks need a **bias** and an **activation function**.
+2. How the **Adaline** and **perceptron** learning rules differ.
+3. How the **Adam** optimizer works, with its update formulas, advantages and disadvantages.
+
+The notebook also has all the code below with explanations and the saved outputs and plots from my Colab run.
+
 ## EX4: Loading and splitting the data → [`ex4_iris_data_split.py`](ex4_iris_data_split.py)
 
 - Load the Iris dataset (150 samples, 4 features, 3 classes) and turn it into PyTorch tensors.
@@ -50,6 +60,9 @@ classes come close to each other. How fast the loss settles depends a lot on the
 | Perceptron | 100, 93.3, 93.3, 90.0, 96.7 % | **95 %** |
 | Adaline | 90.0, 76.7, 86.7, 83.3, 90.0 % | 85 % |
 
+The weights start at random values, so the numbers change a little between runs. In the run saved in the
+notebook, Adaline averaged 83 % and the perceptron again 95 %.
+
 Versicolor and Virginica overlap, so they are not linearly separable, and that is where the mistakes are.
 The perceptron does clearly better. Adaline fits one-hot targets with squared error, which is not the same as
 getting the class right, and its stopping rule ends training as soon as the loss flattens.
@@ -70,6 +83,7 @@ all four inputs (final loss 0.0000). This is the main difference from EX5 and EX
 ## Files
 
 ```
+HW2_report.ipynb                Theory answers + all exercises with outputs (Colab)
 ex4_iris_data_split.py          Iris loading and train/test split
 ex5_adaline_binary.py           Adaline, two classes, every pair of features
 ex6_perceptron_vs_adaline.py    Perceptron and Adaline, three classes, 5-fold CV
