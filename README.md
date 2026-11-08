@@ -45,6 +45,8 @@ The notebook also has all the code below with explanations and the saved outputs
 Setosa and Versicolor are linearly separable, so a single linear neuron is enough: every pair reaches 100 %
 on the test set. The two sepal features are the only pair with a training error, because there the two
 classes come close to each other. How fast the loss settles depends a lot on the pair (173 to 704 iterations).
+The notebook shows these results as decision-boundary plots; the accuracies in the table come from scoring
+the same models on the train and test splits.
 
 ## EX6: Perceptron vs. Adaline on all three classes → [`ex6_perceptron_vs_adaline.py`](ex6_perceptron_vs_adaline.py)
 
@@ -58,10 +60,10 @@ classes come close to each other. How fast the loss settles depends a lot on the
 | Model | Fold accuracies | Average |
 |-------|-----------------|---------|
 | Perceptron | 100, 93.3, 93.3, 90.0, 96.7 % | **95 %** |
-| Adaline | 90.0, 76.7, 86.7, 83.3, 90.0 % | 85 % |
+| Adaline | 83.3, 80.0, 86.7, 80.0, 83.3 % | 83 % |
 
-The weights start at random values, so the numbers change a little between runs. In the run saved in the
-notebook, Adaline averaged 83 % and the perceptron again 95 %.
+These are the results saved in the notebook. The weights start at random values, so Adaline's numbers move
+a few percent between runs; the perceptron gave the same 95 % every time I ran it.
 
 Versicolor and Virginica overlap, so they are not linearly separable, and that is where the mistakes are.
 The perceptron does clearly better. Adaline fits one-hot targets with squared error, which is not the same as
