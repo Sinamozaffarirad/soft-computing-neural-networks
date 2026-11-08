@@ -48,6 +48,11 @@ classes come close to each other. How fast the loss settles depends a lot on the
 The notebook shows these results as decision-boundary plots; the accuracies in the table come from scoring
 the same models on the train and test splits.
 
+<p align="center"><img src="docs/ex5_adaline_learning_curve.png" width="55%" alt="Adaline learning curve"></p>
+
+The error curve of the last pair (petal length and petal width): the loss falls quickly in the first 50
+epochs and then flattens, and training stops by itself after about 240 epochs.
+
 ## EX6: Perceptron vs. Adaline on all three classes → [`ex6_perceptron_vs_adaline.py`](ex6_perceptron_vs_adaline.py)
 
 - **Data:** all 4 features and all 3 classes, standardised.
@@ -64,6 +69,13 @@ the same models on the train and test splits.
 
 These are the results saved in the notebook. The weights start at random values, so Adaline's numbers move
 a few percent between runs; the perceptron gave the same 95 % every time I ran it.
+
+<table align="center"><tr>
+<td align="center"><img src="docs/ex6_perceptron_confusion.png" width="100%" alt="Perceptron confusion matrix"><br>Perceptron</td>
+<td align="center"><img src="docs/ex6_adaline_confusion.png" width="100%" alt="Adaline confusion matrix"><br>Adaline</td>
+</tr></table>
+
+Confusion matrices on the test set of the last fold.
 
 Versicolor and Virginica overlap, so they are not linearly separable, and that is where the mistakes are.
 The perceptron does clearly better. Adaline fits one-hot targets with squared error, which is not the same as
@@ -82,6 +94,8 @@ getting the class right, and its stopping rule ends training as soon as the loss
 The hidden layers let the network bend the input space, so after training it gives the correct output for
 all four inputs (final loss 0.0000). This is the main difference from EX5 and EX6, where the models can only draw straight lines.
 
+<p align="center"><img src="docs/ex7_xor_predicted.png" width="70%" alt="XOR predictions"></p>
+
 ## Files
 
 ```
@@ -90,6 +104,7 @@ ex4_iris_data_split.py          Iris loading and train/test split
 ex5_adaline_binary.py           Adaline, two classes, every pair of features
 ex6_perceptron_vs_adaline.py    Perceptron and Adaline, three classes, 5-fold CV
 ex7_xor_mlp.py                  Two-hidden-layer network for XOR
+docs/                           Plots from the notebook used in this README
 ```
 
 ## Running
